@@ -7,15 +7,15 @@ const msgConditions: [string, number][] = [
     ['buzz', 5]
 ];
 
-const createResultMessage = (number: number): ResultMessage => {
+const createResultMessage = (value: number): ResultMessage => {
     const msgs: String[] = [];
     for (const [msg, condNumber] of msgConditions) {
-        if (number % condNumber === 0) {
+        if (value % condNumber === 0) {
             msgs.push(msg);
         }
     }
     if (!msgs.length) {
-        throw new Error(`Unsupportable number value - ${number}`);
+        throw new Error(`Unsupportable number value - ${value}`);
     }
     return {result: msgs.join('')};
 };

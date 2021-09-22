@@ -35,6 +35,7 @@ export class SecretsManagerWithCache {
     constructor(options?: AWS.SecretsManager.Types.ClientConfiguration) {
         this.client = new AWS.SecretsManager(options);
         this.secretsCache = new Map();
+        setInterval(() => this.secretsCache.clear(), 1000 * 60 * 5);
     }
 
     public async getCachedSecretValue(params: AWS.SecretsManager.Types.GetSecretValueRequest): Promise<string | undefined> {

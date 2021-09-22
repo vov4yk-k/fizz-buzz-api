@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.123.0",
+    "@aws-sdk/lib-dynamodb": "^3.33.0",
     "@types/aws-lambda": "^8.10.83",
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
@@ -25,10 +26,14 @@
   },
   "dependencies": {
     "@aws-cdk/aws-apigateway": "1.123.0",
+    "@aws-cdk/aws-cloudfront": "^1.123.0",
+    "@aws-cdk/aws-cloudfront-origins": "^1.123.0",
+    "@aws-cdk/aws-dynamodb": "^1.123.0",
     "@aws-cdk/aws-iam": "1.123.0",
     "@aws-cdk/aws-lambda": "1.123.0",
     "@aws-cdk/aws-logs": "1.123.0",
     "@aws-cdk/aws-secretsmanager": "1.123.0",
+    "@aws-cdk/aws-ssm": "^1.123.0",
     "@aws-cdk/aws-wafv2": "1.123.0",
     "@aws-cdk/core": "1.123.0",
     "source-map-support": "^0.5.16"

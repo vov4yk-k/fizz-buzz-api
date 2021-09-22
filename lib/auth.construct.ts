@@ -5,7 +5,7 @@ import {Code, Function, Runtime, Tracing} from '@aws-cdk/aws-lambda';
 import {RetentionDays} from '@aws-cdk/aws-logs';
 import {Secret} from '@aws-cdk/aws-secretsmanager';
 
-type AuthorizerProps = { layers?: ILayerVersion[] , region: string};
+type AuthorizerProps = { layers?: ILayerVersion[], region: string };
 
 export class AuthConstruct extends Construct {
 
@@ -34,7 +34,7 @@ export class AuthConstruct extends Construct {
         }
 
 
-        this.authorizer = new TokenAuthorizer(this, `ApiAuthorizer`, {
+        this.authorizer = new TokenAuthorizer(this, `FizzBuzzApiAuthorizer`, {
             authorizerName: `ApiAuthorizer`,
             handler: authorizerFn,
             identitySource: 'method.request.header.Authorization'
@@ -43,8 +43,8 @@ export class AuthConstruct extends Construct {
     }
 
     private createSecret(): Secret {
-        return new Secret(this, 'ApiSecret', {
-            secretName: 'ApiSecret',
+        return new Secret(this, 'FizzBuzzApiSecret', {
+            secretName: 'FizzBuzzApiSecret',
             generateSecretString: {
                 passwordLength: 64,
                 excludePunctuation: true
